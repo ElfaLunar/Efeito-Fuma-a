@@ -1,40 +1,25 @@
-const smoky = document.getElementById("smoky");
+const letters = document.querySelectorAll(".smoky li");
 
-const letters = smoky.querySelectorAll("li");
+/*
+cada letra reage individualmente
+conforme o mouse passa
+*/
 
-let timeoutList = [];
+letters.forEach(letter => {
 
-/* mouse entra */
+  letter.addEventListener("mouseenter", () => {
 
-smoky.addEventListener("mouseenter", () => {
-
-  letters.forEach((letter, index) => {
-
-    const timeout = setTimeout(() => {
-
-      letter.classList.add("active");
-
-    }, index * 300);
-
-    timeoutList.push(timeout);
+    letter.classList.add("smoke");
 
   });
 
-});
+  letter.addEventListener("mouseleave", () => {
 
-/* mouse sai */
+    setTimeout(() => {
 
-smoky.addEventListener("mouseleave", () => {
+      letter.classList.remove("smoke");
 
-  timeoutList.forEach(timeout => {
-    clearTimeout(timeout);
-  });
-
-  timeoutList = [];
-
-  letters.forEach(letter => {
-
-    letter.classList.remove("active");
+    }, 300);
 
   });
 
