@@ -21,7 +21,6 @@ body{
 
 .smoky{
   display:flex;
-  gap:8px;
 }
 
 .smoky li{
@@ -32,23 +31,24 @@ body{
   font-size:140px;
   font-weight:bold;
 
+  letter-spacing:10px;
+
   cursor:pointer;
 
   transition:
-    transform 1.5s ease,
-    opacity 1.5s ease,
-    filter 1.5s ease;
+    transform 2s ease,
+    opacity 2s ease,
+    filter 2s ease;
 
-  user-select:none;
+  filter:blur(0px);
 }
 
-/* efeito fumaça */
+/* efeito aplicado via JS */
 
-.smoky li.smoke{
+.smoky li.active{
   transform:
-    rotate(35deg)
-    translateY(-180px)
-    scale(1.5);
+    rotate(45deg)
+    translateY(-200px);
 
   opacity:0;
 
